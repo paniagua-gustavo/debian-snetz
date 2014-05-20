@@ -1,9 +1,22 @@
 #!/usr/bin/make -f
 #export DH_VERBOSE=1
 
+DEST=$(CURDIR)/debian
+
 %:
 	dh $@ --parallel --with python2
 
 override_dh_auto_install:
 	dh_auto_install
 	cp snetz.py $(CURDIR)/debian/snetz/usr/sbin/snetz
+
+override_dh_installman:
+	cp snetz.1.gz $(DEST)
+	gunzip $(DEST)/snetz.1.gz
+	mv $(DEST)/snetz.1 $(DEST)/snetz.tmp
+	sed 's/man 1/man 8/' $(DEST)/snetz.tmp > $(DEST)/snetz.8
+	dh_installman $(DEST)/snetz.8
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -f $(DEST)/snetz.8  $(DEST)/snetz.tmp
