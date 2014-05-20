@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Gustavo Paniagua dos Santos <paniagua.gustavo@gmail.com>
 Build-Depends: debhelper (>= 9), python-all
 Standards-Version: 3.9.5
-Homepage: http://sourceforge.net/projects/snetz/?source=directory
+Homepage: http://sourceforge.net/projects/snetz
 Vcs-Git: git://github.com/paniagua-gustavo/debian-snetz.git
 Vcs-Browser: https://github.com/paniagua-gustavo/debian-snetz
 
